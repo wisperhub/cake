@@ -1277,7 +1277,7 @@ function startDebugLoop() {
 
   setInterval(() => {
     updateScale();
-    const texto = toques.map(t => `${t.x},${t.y}`).join(",") || "(sem toques)";
+    const texto = toques.map(t => `${t.x},${t.y}`).join("\n") || "(sem toques)";
     container.textContent = texto;
 
     const data = new TextEncoder().encode(texto);
