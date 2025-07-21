@@ -442,8 +442,8 @@
 			// scroll to cart 
 			// p8_frame.scrollIntoView(true);
 
-			document.getElementById("touch_controls_gfx").style.display="table";
-			document.getElementById("touch_controls_background").style.display="table";
+			document.getElementById("touch_controls_gfx").style.display="none";
+			document.getElementById("touch_controls_background").style.display="none";
 
 		}
 		else{
@@ -520,18 +520,10 @@
 	{
 		if (p8_is_running) return;
 		p8_is_running = true;
+		
 
 		// touch: hide everything except p8_frame_0
-		if (p8_touch_detected)
-		{
-			el = document.getElementById("body_0");
-			el2 = document.getElementById("p8_frame_0");
-			if (el && el2)
-			{
-				el.style.display="none";
-				el.parentNode.appendChild(el2);
-			}
-		}
+		p8_touch_detected = false;
 
 		// create audio context and wake it up (for iOS -- needs happen inside touch event)		
 		p8_create_audio_context();
